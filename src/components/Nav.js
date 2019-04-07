@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Auth from '../Auth';
 
 const activeMenu = {
     color: 'blue',
@@ -18,6 +19,14 @@ const Nav = () => {
                     <li className="nav-item">
                         <NavLink activeStyle={ activeMenu } className="nav-link" to="/contact">Contact</NavLink>
                     </li>
+                    { 
+                        Auth.login 
+                        ?
+                        <li className="nav-item">
+                            <NavLink activeStyle={ activeMenu } className="nav-link" to="/logout">Logout</NavLink>
+                        </li>
+                        : '' 
+                    }
                 </ul>
             </div>
         </nav>
